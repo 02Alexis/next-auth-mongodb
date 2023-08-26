@@ -25,21 +25,21 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="justify-center h-[calc(100vh-4rem)] flex items-center">
+      <form onSubmit={handleSubmit} className="bg-neutral-950 px-8 py-10 w3/12">
         {error && <div className="bg-red-500 text-white p-2 mb-2">{error}</div>}
-        <h1>Iniciar Sesión</h1>
+        <h1 className="text-4xl font-bold mb-7">Iniciar Sesión</h1>
         <input
           type="email"
           placeholder="example01@gmail.com"
           name="email"
-          className="bg-zinc-800 px-4 py-2 block mb-2"
+          className="bg-zinc-800 px-4 py-2 block mb-2 w-full"
         />
         <input
           type="password"
           placeholder="********"
           name="password"
-          className="bg-zinc-800 px-4 py-2 block mb-2"
+          className="bg-zinc-800 px-4 py-2 block mb-2 w-full"
         />
 
         <button className="bg-indigo-500 px-4 py-2">Login</button>
