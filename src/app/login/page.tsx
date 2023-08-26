@@ -19,7 +19,7 @@ function LoginPage() {
     });
     if (res?.error) return setError(res.error as string);
 
-    if (res?.ok) return router.push("/dashboard");
+    if (res?.ok) return router.push("/dashboard/profile");
 
     console.log(res);
   };
