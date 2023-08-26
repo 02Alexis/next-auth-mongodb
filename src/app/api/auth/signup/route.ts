@@ -47,10 +47,13 @@ export async function POST(request: Request) {
     }); //genera un objeto usuario
     //Guardamos en la db
     const savedUser = await user.save();
-    console.log(savedUser);
 
     //retornamos el cli
-    return NextResponse.json(savedUser);
+    return NextResponse.json({
+      _id: savedUser._id,
+      email: savedUser.email,
+      fullname: savedUser.fullname,
+    });
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json(
