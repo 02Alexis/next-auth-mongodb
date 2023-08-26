@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation";
 
 function RegisterPage() {
   const [error, setError] = useState();
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
     try {
-      const formData = new FormData(event.currentTarget);
       const signupResponse = await axios.post("/api/auth/signup", {
         email: formData.get("email"),
         password: formData.get("password"),
@@ -24,7 +24,7 @@ function RegisterPage() {
         redirect: false,
       });
 
-      if (res?.ok) return router.push("/dashboard")
+      if (res?.ok) return router.push("/dashboard");
 
       console.log(res);
     } catch (error) {
